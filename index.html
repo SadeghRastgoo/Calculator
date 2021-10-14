@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" sizes="32x32" href="favicon.png" type="png/image" />
+
+    <title>Calculator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body class="">
+    <div class="mobile">
+      <div class="bar">
+        <div class="bar__time" id="clock">10:12</div>
+        <div class="bar__icons">
+          <i class="fas fa-signal"></i>
+          <i class="fas fa-wifi"></i>
+          <i class="fas fa-battery-full"></i>
+        </div>
+      </div>
+      <div class="app">
+        <div class="top-sec">
+          <div class="history">
+            <i class="fas fa-history"></i>
+          </div>
+          <div class="theme-color">
+            <i class="far fa-sun btn-light"></i>
+            <i class="far fa-moon btn-dark active-theme"></i>
+          </div>
+          <div class="inputs">
+            <input
+              class="inputB"
+              type="text"
+              placeholder="1"
+              value=""
+              id="input"
+            />
+            <input
+              class="inputA activeInput"
+              type="text"
+              placeholder="0"
+              value=""
+              id="input"
+            />
+          </div>
+        </div>
+        <div class="bottom-sec">
+          <div class="cKey mainKey">C</div>
+          <div class="undoKey mainKey"><i class="fas fa-undo-alt"></i></div>
+          <div class="percentageKey mainKey">
+            <i class="fas fa-percent"></i>
+          </div>
+          <div class="divideKey mainKey"><i class="fas fa-divide"></i></div>
+          <div class="numKey" onclick="numFunc(7)">7</div>
+          <div class="numKey" onclick="numFunc(8)">8</div>
+          <div class="numKey" onclick="numFunc(9)">9</div>
+          <div class="mutiplyKey mainKey"><i class="fas fa-times"></i></div>
+          <div class="numKey" onclick="numFunc(4)">4</div>
+          <div class="numKey" onclick="numFunc(5)">5</div>
+          <div class="numKey" onclick="numFunc(6)">6</div>
+          <div class="minusKey mainKey"><i class="fas fa-minus"></i></div>
+          <div class="numKey" onclick="numFunc(1)">1</div>
+          <div class="numKey" onclick="numFunc(2)">2</div>
+          <div class="numKey" onclick="numFunc(3)">3</div>
+          <div class="plusKey mainKey"><i class="fas fa-add"></i></div>
+          <div class="numKey"><i class="fas fa-infinity"></i></div>
+          <div class="numKey" onclick="numFunc(0)">0</div>
+          <div class="numKey dotKey">.</div>
+          <div class="powerKey mainKey"><i class="fas fa-superscript"></i></div>
+          <div class="resultKey"></div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
