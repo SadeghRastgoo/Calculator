@@ -71,7 +71,6 @@ const checkLengthOfNum = () => {
 };
 
 const setInHistory = (result) => {
-  
   const newEl = document.createElement("div");
   newEl.innerHTML = `<div class="history-item">
     <span class="history-item__result">${result}</span>
