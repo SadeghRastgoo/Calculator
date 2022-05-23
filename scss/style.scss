@@ -324,10 +324,9 @@ input {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
-  img {
-    width: 31rem;
-  }
+}
+.app-history__empty-img {
+  width: 31rem;
 }
 
 .backdrop {
