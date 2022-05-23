@@ -71,6 +71,10 @@ const checkLengthOfNum = () => {
 };
 
 const setInHistory = (result) => {
+  const historyEmptyEl = document.querySelector(".app-history__empty");
+  if (!historyEmptyEl.classList.contains("d-none")) {
+    historyEmptyEl.classList.add("d-none");
+  }
   const newEl = document.createElement("div");
   newEl.innerHTML = `<div class="history-item">
     <span class="history-item__result">${result}</span>
