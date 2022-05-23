@@ -1,0 +1,37 @@
+:root {
+  --white: rgb(255, 255, 255);
+  --white-2: rgb(251, 251, 251);
+  --white-3: rgb(246, 246, 246);
+  --white-4: rgb(233, 233, 233);
+  --purple: rgb(4, 26, 118);
+  --dark-gray: rgb(46, 44, 55);
+  --light-gray: rgb(54, 52, 65);
+  --light-gray-2: rgb(73, 72, 82);
+  --light-gray-3: rgb(111, 114, 122);
+  --light-gra-4: rgb(67, 64, 81);
+  --light-gray-5: rgb(83, 79, 98);
+  --blue: rgb(90, 123, 255);
+  --blue-2: rgb(68, 101, 233);
+}
+
+.dark-mode {
+  --text-color: var(--white);
+  --bg-color: var(--white-4);
+  --mobile-bg: var(--dark-gray);
+  --icons-bg: var(--light-gray);
+  --icons-bg-2: var(--light-gra-4);
+  --icons-bg-hover: var(--light-gray-5);
+  --bottom-navigation: var(--light-gray-2);
+  --theme-picker-icons-color: var(--light-gray-3);
+}
+
+.light-mode {
+  --text-color: var(--purple);
+  --bg-color: var(--white-4);
+  --mobile-bg: var(--white);
+  --icons-bg: var(--white-3);
+  --icons-bg-2: var(--white-4);
+  --icons-bg-hover: var(--white-4);
+  --bottom-navigation: var(--light-gray-3);
+  --theme-picker-icons-color: var(--light-gray-3);
+}
