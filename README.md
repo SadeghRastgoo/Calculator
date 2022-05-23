@@ -1,6 +1,6 @@
 # Calculator
 
-<img src="./app-mockup.png' />
+![app mockup](app-mockup.png "App Mockup")
 
 #### A Beautiful Calculator App with Simple and Easy-to-use User Interface
 
