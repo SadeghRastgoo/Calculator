@@ -97,6 +97,8 @@ const printToInputB = (str) => {
   };
   if (str === "format") {
     inputBStr = "";
+  } else if (str === "delete") {
+    inputBStr = inputBStr.slice(0, -1);
   } else {
     inputBStr += operatorsObj[str] || str;
   }
@@ -170,6 +172,7 @@ acEl.addEventListener("click", () => {
 delEl.addEventListener("click", () => {
   const valueAsStr = getValueAsStr();
   const valueAsStrSliced = valueAsStr.slice(0, -1);
+  printToInputB("delete");
   setStrAsValue(valueAsStrSliced);
 });
 
