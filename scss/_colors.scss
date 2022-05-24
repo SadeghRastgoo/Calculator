@@ -1,5 +1,6 @@
 :root {
   --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
   --white-2: rgb(251, 251, 251);
   --white-3: rgb(246, 246, 246);
   --white-4: rgb(233, 233, 233);
@@ -15,6 +16,7 @@
 }
 
 .dark-mode {
+  --revert-color: var(--white);
   --text-color: var(--white);
   --bg-color: var(--white-4);
   --mobile-bg: var(--dark-gray);
@@ -23,9 +25,12 @@
   --icons-bg-hover: var(--light-gray-5);
   --bottom-navigation: var(--light-gray-2);
   --theme-picker-icons-color: var(--light-gray-3);
+
+  --notification-blend-mode: lighten;
 }
 
 .light-mode {
+  --revert-color: var(--black);
   --text-color: var(--purple);
   --bg-color: var(--white-4);
   --mobile-bg: var(--white);
@@ -34,4 +39,6 @@
   --icons-bg-hover: var(--white-4);
   --bottom-navigation: var(--light-gray-3);
   --theme-picker-icons-color: var(--light-gray-3);
+
+  --notification-blend-mode: darken;
 }

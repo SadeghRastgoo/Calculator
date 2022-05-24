@@ -6,6 +6,8 @@ const backdropEl = document.querySelector(".backdrop");
 const historyEl = document.querySelector(".app__history");
 const phoneEl = document.querySelector(".mobile");
 const appAlertEl = document.querySelector(".app__alert");
+const notificationEl = document.querySelector(".notification");
+const notificationCloseBtn = document.querySelector(".notification__close");
 
 const zoomMobileBtn = document.querySelector(".size-btn__zoom");
 const zoomoutMobileBtn = document.querySelector(".size-btn__zoomout");
@@ -363,3 +365,19 @@ zoomMobileBtn.addEventListener("click", () => {
 zoomoutMobileBtn.addEventListener("click", () => {
   zoomFunctionality("out");
 });
+
+setTimeout(() => {
+  openNotification();
+}, 4000);
+
+const openNotification = () => {
+  notificationEl.classList.add("notification--active");
+  setTimeout(() => {
+    closeNotification();
+  }, 6000);
+};
+const closeNotification = () => {
+  notificationEl.classList.remove("notification--active");
+};
+
+notificationCloseBtn.addEventListener("click", closeNotification);
