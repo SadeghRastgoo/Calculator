@@ -95,7 +95,11 @@ const printToInputB = (str) => {
     percentage: "%",
     equal: "=",
   };
-  inputBStr += operatorsObj[str] || str;
+  if (str === "format") {
+    inputBStr = "";
+  } else {
+    inputBStr += operatorsObj[str] || str;
+  }
   inputB.value = inputBStr;
 };
 
@@ -157,6 +161,7 @@ const handleOperatorClick = (operation) => {
 
 // Add event listeners to functions
 acEl.addEventListener("click", () => {
+  printToInputB("format");
   setStrAsValue("0");
   valueStrInMemory = null;
   operatorInMemory = null;
