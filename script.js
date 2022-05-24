@@ -148,6 +148,12 @@ acEl.addEventListener("click", () => {
   operatorInMemory = null;
 });
 
+delEl.addEventListener("click", () => {
+  const valueAsStr = getValueAsStr();
+  const valueAsStrSliced = valueAsStr.slice(0, -1);
+  setStrAsValue(valueAsStrSliced);
+});
+
 pmEl.addEventListener("click", () => {
   const currentValueNum = getValueAsNum();
   const currentValueStr = getValueAsStr();
