@@ -198,7 +198,13 @@ delEl.addEventListener("click", () => {
   const valueAsStr = getValueAsStr();
   const valueAsStrSliced = valueAsStr.slice(0, -1);
   printToInputB("delete");
-  setStrAsValue(valueAsStrSliced);
+  if (valueAsStrSliced[valueAsStrSliced.length - 1] === ".") {
+    setStrAsValue(valueAsStrSliced.slice(0, -1));
+  } else if (valueAsStr.length <= 1) {
+    setStrAsValue("0");
+  } else {
+    setStrAsValue(valueAsStrSliced);
+  }
   limitLengthOfNum();
 });
 
