@@ -85,6 +85,20 @@ const setInHistory = (result) => {
   historyEl.appendChild(newEl);
 };
 
+let inputBStr = "";
+const printToInputB = (str) => {
+  const operatorsObj = {
+    addition: "+",
+    subtraction: "-",
+    multiplication: "*",
+    division: "/",
+    percentage: "%",
+    equal: "=",
+  };
+  inputBStr += operatorsObj[str] || str;
+  inputB.value = inputBStr;
+};
+
 const setStrAsValue = (valueStr) => {
   if (valueStr[valueStr.length - 1] === ".") {
     inputA.value += ".";
@@ -179,20 +193,25 @@ percentEl.addEventListener("click", () => {
 // Add event listeners to operators
 additionEl.addEventListener("click", () => {
   handleOperatorClick("addition");
+  printToInputB("addition");
 });
 subtractionEl.addEventListener("click", () => {
   handleOperatorClick("subtraction");
+  printToInputB("subtraction");
 });
 multiplicationEl.addEventListener("click", () => {
   handleOperatorClick("multiplication");
+  printToInputB("multiplication");
 });
 divisionEl.addEventListener("click", () => {
   handleOperatorClick("division");
+  printToInputB("division");
 });
 equalEl.addEventListener("click", () => {
   if (valueStrInMemory) {
     const newValueAsStr = getResultOfOperationAsStr();
     setStrAsValue(getResultOfOperationAsStr());
+    printToInputB("=" + newValueAsStr);
     setInHistory(newValueAsStr);
     valueStrInMemory = null;
     operatorInMemory = null;
@@ -203,6 +222,7 @@ equalEl.addEventListener("click", () => {
 numberElsArr.forEach((el) => {
   el.addEventListener("click", () => {
     handleNumberClick(el.innerText.toString());
+    printToInputB(el.innerText.toString());
   });
 });
 decimalEl.addEventListener("click", () => {
