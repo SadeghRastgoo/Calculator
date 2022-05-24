@@ -176,6 +176,9 @@ input {
   outline: none;
   text-align: right;
 }
+.inputB {
+  color: #6f7279;
+}
 .activeInput {
   order: 9;
   font-size: 1em;
@@ -346,6 +349,13 @@ input {
 }
 .text-xs {
   font-size: 0.6em;
+}
+
+.b-text-sm {
+  font-size: 1.8rem;
+}
+.b-text-xs {
+  font-size: 1.4rem;
 }
 
 .no-select {

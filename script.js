@@ -69,6 +69,16 @@ const checkLengthOfNum = () => {
     inputA.classList.remove("text-xs");
   }
 };
+const checkLengthOfInputB = (inputBStr) => {
+  if (inputBStr.length > 28) {
+    inputB.classList.add("b-text-xs");
+  } else if (inputBStr.length > 18) {
+    inputB.classList.add("b-text-sm");
+  } else {
+    inputB.classList.remove("b-text-sm");
+    inputB.classList.remove("b-text-xs");
+  }
+};
 
 const setInHistory = (result) => {
   const historyEmptyEl = document.querySelector(".app-history__empty");
@@ -103,6 +113,7 @@ const printToInputB = (str) => {
     inputBStr += operatorsObj[str] || str;
   }
   inputB.value = inputBStr;
+  checkLengthOfInputB(inputBStr);
 };
 
 const setStrAsValue = (valueStr) => {
@@ -179,6 +190,7 @@ delEl.addEventListener("click", () => {
 pmEl.addEventListener("click", () => {
   const currentValueNum = getValueAsNum();
   const currentValueStr = getValueAsStr();
+
   if (currentValueStr === "-0") {
     setStrAsValue("0");
     return;
