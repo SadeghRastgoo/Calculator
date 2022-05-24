@@ -27,6 +27,7 @@
   --theme-picker-icons-color: var(--light-gray-3);
 
   --notification-blend-mode: lighten;
+  --close-icon-bg: rgba(255, 255, 255, 0.3);
 }
 
 .light-mode {
@@ -41,4 +42,5 @@
   --theme-picker-icons-color: var(--light-gray-3);
 
   --notification-blend-mode: darken;
+  --close-icon-bg: rgba(255, 255, 255, 0.75);
 }
