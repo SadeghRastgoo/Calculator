@@ -332,6 +332,43 @@ input {
   width: 31rem;
 }
 
+.app__alert {
+  background: rgba(175, 11, 11, 0.826);
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  position: absolute;
+  left: 50%;
+  top: 0rem;
+  transform: translateX(-50%);
+  transition: 1s;
+  span {
+    width: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  i {
+    position: relative;
+    top: 1px;
+  }
+}
+.app__alert--active {
+  top: 6rem;
+  width: 22rem;
+  span {
+    width: 100%;
+    text-align: center;
+  }
+  i {
+    left: -5px;
+  }
+}
+
 .backdrop {
   width: 100%;
   height: 100%;
@@ -348,14 +385,14 @@ input {
   font-size: 0.8em;
 }
 .text-xs {
-  font-size: 0.6em;
+  font-size: 0.75em;
 }
 
 .b-text-sm {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 .b-text-xs {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 .no-select {

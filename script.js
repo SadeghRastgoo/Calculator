@@ -5,6 +5,7 @@ const historyBtn = document.querySelector(".history-icon");
 const backdropEl = document.querySelector(".backdrop");
 const historyEl = document.querySelector(".app__history");
 const phoneEl = document.querySelector(".mobile");
+const appAlertEl = document.querySelector(".app__alert");
 
 const zoomMobileBtn = document.querySelector(".size-btn__zoom");
 const zoomoutMobileBtn = document.querySelector(".size-btn__zoomout");
@@ -77,6 +78,16 @@ const checkLengthOfInputB = (inputBStr) => {
   } else {
     inputB.classList.remove("b-text-sm");
     inputB.classList.remove("b-text-xs");
+  }
+};
+const limitLengthOfNum = () => {
+  const valueAsStr = getValueAsStr();
+  if (valueAsStr.length > 10) {
+    appAlertEl.classList.add("app__alert--active");
+    return false;
+  } else {
+    appAlertEl.classList.remove("app__alert--active");
+    return true;
   }
 };
 
@@ -178,6 +189,7 @@ acEl.addEventListener("click", () => {
   setStrAsValue("0");
   valueStrInMemory = null;
   operatorInMemory = null;
+  limitLengthOfNum();
 });
 
 delEl.addEventListener("click", () => {
@@ -185,6 +197,7 @@ delEl.addEventListener("click", () => {
   const valueAsStrSliced = valueAsStr.slice(0, -1);
   printToInputB("delete");
   setStrAsValue(valueAsStrSliced);
+  limitLengthOfNum();
 });
 
 pmEl.addEventListener("click", () => {
@@ -241,8 +254,10 @@ equalEl.addEventListener("click", () => {
 // Add event listeners to numbers and decimal
 numberElsArr.forEach((el) => {
   el.addEventListener("click", () => {
-    handleNumberClick(el.innerText.toString());
-    printToInputB(el.innerText.toString());
+    if (limitLengthOfNum() === true) {
+      handleNumberClick(el.innerText.toString());
+      printToInputB(el.innerText.toString());
+    }
   });
 });
 decimalEl.addEventListener("click", () => {
@@ -255,7 +270,7 @@ infinityEl.addEventListener("click", () => {
   setStrAsValue("0");
   valueStrInMemory = null;
   operatorInMemory = null;
-  setStrAsValue("90071992547409");
+  setStrAsValue("90071992547");
 });
 
 // History
