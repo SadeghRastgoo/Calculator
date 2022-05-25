@@ -4,6 +4,7 @@
 const body = document.querySelector("body");
 const historyBtn = document.querySelector(".history-icon");
 const backdropEl = document.querySelector(".backdrop");
+const historyEmptyEl = document.querySelector(".app-history__empty");
 const historyEl = document.querySelector(".app__history");
 const phoneEl = document.querySelector(".mobile");
 const appAlertEl = document.querySelector(".app__alert");
@@ -54,10 +55,6 @@ const numberElsArr = [
 ];
 
 // Variables in memory
-let memoryVars = {
-  valueStrInMemory: null,
-  operatorInMemory: null,
-};
 let valueStrInMemory = null;
 let operatorInMemory = null;
 
@@ -99,10 +96,8 @@ const limitLengthOfNum = () => {
 };
 
 const setInHistory = (result) => {
-  const historyEmptyEl = document.querySelector(".app-history__empty");
-  if (!historyEmptyEl.classList.contains("d-none")) {
+  if (!historyEmptyEl.classList.contains("d-none"))
     historyEmptyEl.classList.add("d-none");
-  }
   const newEl = document.createElement("div");
   newEl.innerHTML = `<div class="history-item">
     <span class="history-item__result">${result}</span>
@@ -113,7 +108,9 @@ const setInHistory = (result) => {
   historyEl.insertBefore(newEl, historyEl.firstChild);
 };
 
+// TODO: Refactor
 let inputBStr = "";
+
 const printToInputB = (str) => {
   const operatorsObj = {
     addition: "+",
@@ -121,6 +118,7 @@ const printToInputB = (str) => {
     multiplication: "*",
     division: "/",
     percentage: "%",
+    decimal: ".",
     equal: "=",
   };
   if (str === "format") {
@@ -131,7 +129,7 @@ const printToInputB = (str) => {
     inputBStr += operatorsObj[str] || str;
   }
   inputB.value = inputBStr;
-  checkLengthOfInputB(inputBStr);
+  checkLengthOfInputB();
 };
 
 const setStrAsValue = (valueStr) => {
@@ -171,7 +169,6 @@ const getResultOfOperationAsStr = () => {
   } else if (operatorInMemory === "division") {
     newValueNum = valueNumInMemory / currentValueNum;
   }
-
   return newValueNum.toString();
 };
 
@@ -190,7 +187,7 @@ const handleOperatorClick = (operation) => {
   setStrAsValue("0");
 };
 
-// Add event listeners to functions
+// Add event listeners to keys and buttons
 acEl.addEventListener("click", () => {
   printToInputB("format");
   setStrAsValue("0");
@@ -202,12 +199,21 @@ acEl.addEventListener("click", () => {
 delEl.addEventListener("click", () => {
   const valueAsStr = getValueAsStr();
   const valueAsStrSliced = valueAsStr.slice(0, -1);
-  printToInputB("delete");
   if (valueAsStrSliced[valueAsStrSliced.length - 1] === ".") {
     setStrAsValue(valueAsStrSliced.slice(0, -1));
-  } else if (valueAsStr.length <= 1) {
+    printToInputB("delete");
+    printToInputB("delete");
+  } else if (valueAsStr.length === 0) {
+    printToInputB("delete");
     setStrAsValue("0");
+  } else if (valueAsStr.length === 1) {
+    setStrAsValue("0");
+    const inputBArr = [...inputB.value];
+    if (isNaN(inputBArr[inputBArr.length - 2])) {
+      printToInputB("delete");
+    }
   } else {
+    printToInputB("delete");
     setStrAsValue(valueAsStrSliced);
   }
   limitLengthOfNum();
@@ -275,6 +281,7 @@ numberElsArr.forEach((el) => {
 });
 decimalEl.addEventListener("click", () => {
   const currentValueStr = getValueAsStr();
+  printToInputB("decimal");
   if (!currentValueStr.includes(".")) {
     setStrAsValue(currentValueStr + ".");
   }
