@@ -306,16 +306,20 @@ backdropEl.addEventListener("click", () => {
 const btnLight = document.querySelector(".btn-light");
 const btnDark = document.querySelector(".btn-dark");
 
+const theme = localStorage.getItem("theme");
+
 const switchThemeFunc = function () {
   const turnLightMode = function () {
     body.classList.add("light-mode");
     btnDark.classList.remove("active-theme");
     btnLight.classList.add("active-theme");
+    localStorage.setItem("theme", "light-mode");
   };
   const turnDarkMode = function () {
     body.classList.remove("light-mode");
     btnDark.classList.add("active-theme");
     btnLight.classList.remove("active-theme");
+    localStorage.setItem("theme", "dark-mode");
   };
   if (btnDark.classList.contains("active-theme")) {
     turnLightMode();
@@ -325,6 +329,13 @@ const switchThemeFunc = function () {
 };
 btnLight.addEventListener("click", switchThemeFunc);
 btnDark.addEventListener("click", switchThemeFunc);
+
+if (theme) {
+  body.classList.add(theme);
+  if (body.classList.contains("light-mode")) {
+    switchThemeFunc();
+  }
+}
 
 function currentTime() {
   let date = new Date();
