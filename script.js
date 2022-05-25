@@ -1,5 +1,6 @@
 "use strict";
 
+// Main elements
 const body = document.querySelector("body");
 const historyBtn = document.querySelector(".history-icon");
 const backdropEl = document.querySelector(".backdrop");
@@ -8,15 +9,14 @@ const phoneEl = document.querySelector(".mobile");
 const appAlertEl = document.querySelector(".app__alert");
 const notificationEl = document.querySelector(".notification");
 const notificationCloseBtn = document.querySelector(".notification__close");
-
 const zoomMobileBtn = document.querySelector(".size-btn__zoom");
 const zoomoutMobileBtn = document.querySelector(".size-btn__zoomout");
 
-// Inputs
+// Input elements
 const inputA = document.querySelector(".inputA");
 const inputB = document.querySelector(".inputB");
 
-// Main Keys
+// Main keys
 const acEl = document.querySelector(".ac");
 const delEl = document.querySelector(".del");
 const pmEl = document.querySelector(".pm");
@@ -29,7 +29,7 @@ const decimalEl = document.querySelector(".decimal");
 const infinityEl = document.querySelector(".infinity");
 const equalEl = document.querySelector(".equal");
 
-// Number Keys
+// Number keys
 const number0El = document.querySelector(".number-0");
 const number1El = document.querySelector(".number-1");
 const number2El = document.querySelector(".number-2");
@@ -54,6 +54,10 @@ const numberElsArr = [
 ];
 
 // Variables in memory
+let memoryVars = {
+  valueStrInMemory: null,
+  operatorInMemory: null,
+};
 let valueStrInMemory = null;
 let operatorInMemory = null;
 
@@ -72,19 +76,20 @@ const checkLengthOfNum = () => {
     inputA.classList.remove("text-xs");
   }
 };
-const checkLengthOfInputB = (inputBStr) => {
-  if (inputBStr.length > 28) {
+
+const checkLengthOfInputB = () => {
+  if (inputB.value.length > 28) {
     inputB.classList.add("b-text-xs");
-  } else if (inputBStr.length > 18) {
+  } else if (inputB.value.length > 18) {
     inputB.classList.add("b-text-sm");
   } else {
     inputB.classList.remove("b-text-sm");
     inputB.classList.remove("b-text-xs");
   }
 };
+
 const limitLengthOfNum = () => {
-  const valueAsStr = getValueAsStr();
-  if (valueAsStr.length > 10) {
+  if (getValueAsStr().length > 10) {
     appAlertEl.classList.add("app__alert--active");
     return false;
   } else {
@@ -105,7 +110,7 @@ const setInHistory = (result) => {
       document.querySelector(".status-bar__time").textContent
     }</time>
   </div>`;
-  historyEl.appendChild(newEl);
+  historyEl.insertBefore(newEl, historyEl.firstChild);
 };
 
 let inputBStr = "";
