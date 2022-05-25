@@ -209,9 +209,7 @@ delEl.addEventListener("click", () => {
   } else if (valueAsStr.length === 1) {
     setStrAsValue("0");
     const inputBArr = [...inputB.value];
-    if (isNaN(inputBArr[inputBArr.length - 2])) {
-      printToInputB("delete");
-    }
+    if (isNaN(inputBArr[inputBArr.length - 2])) printToInputB("delete");
   } else {
     printToInputB("delete");
     setStrAsValue(valueAsStrSliced);
@@ -281,9 +279,9 @@ numberElsArr.forEach((el) => {
 });
 decimalEl.addEventListener("click", () => {
   const currentValueStr = getValueAsStr();
-  printToInputB("decimal");
   if (!currentValueStr.includes(".")) {
     setStrAsValue(currentValueStr + ".");
+    printToInputB("decimal");
   }
 });
 infinityEl.addEventListener("click", () => {
