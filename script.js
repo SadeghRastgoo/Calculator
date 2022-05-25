@@ -289,6 +289,7 @@ infinityEl.addEventListener("click", () => {
   valueStrInMemory = null;
   operatorInMemory = null;
   setStrAsValue("90071992547");
+  printToInputB("90071992547");
 });
 
 // History
