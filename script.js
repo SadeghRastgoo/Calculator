@@ -108,7 +108,6 @@ const setInHistory = (result) => {
   historyEl.insertBefore(newEl, historyEl.firstChild);
 };
 
-// TODO: Refactor
 let inputBStr = "";
 
 const printToInputB = (str) => {
@@ -127,6 +126,12 @@ const printToInputB = (str) => {
     inputBStr = inputBStr.slice(0, -1);
   } else {
     inputBStr += operatorsObj[str] || str;
+    if (
+      inputBStr[inputBStr.length - 1] === operatorsObj[str] &&
+      inputBStr[inputBStr.length - 2] === operatorsObj[str]
+    ) {
+      inputBStr = inputBStr.slice(0, -1);
+    }
   }
   inputB.value = inputBStr;
   checkLengthOfInputB();
